@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lena Gempke — Feminist Political Economist</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ff3d7f;
+    --orange:#ff8a3d;
+    --yellow:#ffd23f;
+    --teal:#06d6a0;
+    --blue:#2ec4f1;
+    --purple:#7a4eff;
+    --ink:#1a1033;
+    --cream:#fff8e7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.1;font-weight:900}
+  a{color:inherit}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:var(--ink);
+    padding:18px 6vw;
+    display:flex;justify-content:space-between;align-items:center;
+    border-bottom:4px solid var(--yellow);
+  }
+  nav .logo{color:var(--yellow);font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{color:var(--cream);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
+  nav a:hover{color:var(--pink)}
+  @media(max-width:640px){nav ul{display:none}}
+
+  /* HERO */
+  .hero{
+    padding:100px 6vw 120px;
+    background:
+      radial-gradient(circle at 15% 20%, var(--pink) 0%, transparent 35%),
+      radial-gradient(circle at 85% 30%, var(--yellow) 0%, transparent 40%),
+      radial-gradient(circle at 70% 85%, var(--teal) 0%, transparent 38%),
+      radial-gradient(circle at 20% 90%, var(--purple) 0%, transparent 35%),
+      var(--cream);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:center;
+    max-width:1200px;margin:0 auto;position:relative;z-index:2;
+  }
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+  .eyebrow{
+    display:inline-block;background:var(--ink);color:var(--yellow);
+    padding:8px 18px;border-radius:999px;font-weight:700;font-size:.85rem;
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(3rem,7vw,6rem);
+    margin-bottom:24px;
+  }
+  .hero h1 .accent1{color:var(--pink)}
+  .hero h1 .accent2{color:var(--purple);font-style:italic}
+  .hero p.lead{
+    font-size:1.25rem;max-width:560px;margin-bottom:32px;
+    background: rgba(255,248,231,.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:14px 28px;border-radius:999px;
+    text-decoration:none;font-weight:700;transition:transform .2s;
+    border:3px solid var(--ink);
+  }
+  .btn:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+  .btn-primary{background:var(--pink);color:var(--cream)}
+  .btn-secondary{background:var(--yellow);color:var(--ink)}
+
+  .portrait-wrap{
+    position:relative;justify-self:center;
+  }
+  .portrait{
+    width:320px;height:320px;border-radius:50%;
+    background:url('https://www.soas.ac.uk/sites/default/files/styles/16_9_media_medium/public/2025-03/Lena%20Gempke%20LG35.jpg?h=8e1427f9&itok=91PYxgjX') 62%/cover;
+    border:8px solid var(--ink);
+    box-shadow:14px 14px 0 var(--teal);
+    position:relative;z-index:2;
+  }
+  .blob{position:absolute;border-radius:50%;z-index:1}
+  .blob1{width:80px;height:80px;background:var(--orange);top:-20px;right:-10px;border:5px solid var(--ink)}
+  .blob2{width:50px;height:50px;background:var(--blue);bottom:0;left:-30px;border:5px solid var(--ink)}
+
+  /* SECTIONS */
+  section{padding:100px 6vw}
+  .container{max-width:1100px;margin:0 auto}
+  .section-label{
+    font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;
+    margin-bottom:16px;
+  }
+  h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:40px}
+
+  /* ABOUT */
+  .about{background:var(--ink);color:var(--cream)}
+  .about .section-label{color:var(--yellow)}
+  .about h2 em{color:var(--pink);font-style:italic}
+  .about p{font-size:1.15rem;margin-bottom:20px;max-width:780px}
+  .about .highlight{background:var(--purple);padding:2px 8px;border-radius:4px}
+
+  /* RESEARCH */
+  .research{background:var(--yellow)}
+  .research h2 em{color:var(--purple);font-style:italic}
+  .interests{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;margin-top:40px;
+  }
+  .interest-card{
+    background:var(--cream);padding:28px;border-radius:20px;
+    border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);
+    transition:transform .2s;
+  }
+  .interest-card:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--ink)}
+  .interest-card .num{
+    font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;
+    display:block;margin-bottom:8px;
+  }
+  .interest-card:nth-child(1) .num{color:var(--pink)}
+  .interest-card:nth-child(2) .num{color:var(--purple)}
+  .interest-card:nth-child(3) .num{color:var(--teal)}
+  .interest-card:nth-child(4) .num{color:var(--orange)}
+  .interest-card:nth-child(5) .num{color:var(--blue)}
+  .interest-card:nth-child(6) .num{color:var(--pink)}
+  .interest-card h3{font-size:1.25rem;margin-bottom:8px}
+
+  /* THESIS */
+  .thesis{
+    background:linear-gradient(135deg,var(--pink) 0%,var(--orange) 100%);
+    color:var(--cream);
+  }
+  .thesis-card{
+    background:var(--cream);color:var(--ink);
+    padding:50px;border-radius:24px;
+    border:5px solid var(--ink);box-shadow:12px 12px 0 var(--ink);
+    max-width:800px;margin:0 auto;
+  }
+  .thesis-card .label{
+    display:inline-block;background:var(--purple);color:var(--cream);
+    padding:6px 14px;border-radius:999px;font-size:.8rem;
+    font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px;
+  }
+  .thesis-card h3{font-size:2rem;margin-bottom:16px;line-height:1.2}
+  .thesis-card .supervisor{margin-top:24px;font-size:.95rem;color:#666}
+  .thesis-card .supervisor strong{color:var(--ink)}
+
+  /* BACKGROUND */
+  .background{background:var(--teal)}
+  .background h2 em{color:var(--ink);font-style:italic}
+  .timeline{position:relative;margin-top:50px;padding-left:30px;border-left:4px solid var(--ink)}
+  .timeline-item{margin-bottom:40px;position:relative}
+  .timeline-item::before{
+    content:'';position:absolute;left:-42px;top:6px;
+    width:20px;height:20px;border-radius:50%;
+    background:var(--yellow);border:4px solid var(--ink);
+  }
+  .timeline-item h3{font-size:1.4rem;margin-bottom:6px}
+  .timeline-item .place{font-weight:700;color:var(--purple);margin-bottom:8px;display:block}
+  .timeline-item p{font-size:1rem}
+
+  /* CONTACT */
+  .contact{
+    background:var(--purple);color:var(--cream);
+    text-align:center;padding:120px 6vw;
+  }
+  .contact h2{font-size:clamp(2.5rem,6vw,5rem);margin-bottom:24px}
+  .contact h2 em{color:var(--yellow);font-style:italic}
+  .contact p{font-size:1.2rem;max-width:560px;margin:0 auto 36px}
+  .contact .btn-primary{background:var(--yellow);color:var(--ink);border-color:var(--cream)}
+  .contact .btn-primary:hover{box-shadow:6px 6px 0 var(--cream)}
+
+  footer{
+    background:var(--ink);color:var(--cream);
+    padding:30px 6vw;text-align:center;font-size:.9rem;
+    border-top:4px solid var(--pink);
+  }
+  footer a{color:var(--yellow)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">LG.</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#thesis">Thesis</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">PhD Researcher · SOAS, London</span>
+      <h1><span class="accent2">Lena</span> <span class="accent1">Gempke</span>,<br> political economist.</h1>
+      <p class="lead">Rethinking household debt, social reproduction, and subordinate financialization across the Global South, with a focus on South Africa.</p>
+      <div class="hero-buttons">
+        <a href="#research" class="btn btn-primary">See the research →</a>
+        <a href="mailto:695261@soas.ac.uk" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="blob blob1"></div>
+      <div class="portrait" role="img" aria-label="Portrait of Lena Gempke"></div>
+      <div class="blob blob2"></div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-label">↳ About</div>
+    <h2>An economist who refuses the <em>tidy categories</em> of economics.</h2>
+    <p>Lena is a PhD student in Development Economics at SOAS, University of London, where her work explores the gendered nature of household debt in the Global South — with a particular focus on <span class="highlight">South Africa</span>.</p>
+    <p>She contributes to a heterodox reading of our economic system by tracing how financial capitalism shapes material realities in the Global South, linking theories of subordinate financialization with social reproduction frameworks.</p>
+    <p>Lena is dedicated to unpacking the real-life complexities behind well-established categories in economics — households, debt, networks — drawing on anthropology, political economy, gender studies, and economics in equal measure.</p>
+  </div>
+</section>
+
+<section class="research" id="research">
+  <div class="container">
+    <div class="section-label">↳ Research interests</div>
+    <h2>Many threads, one <em>unruly</em> tapestry.</h2>
+    <div class="interests">
+      <div class="interest-card"><span class="num">01</span><h3>Social Reproduction</h3><p>Approaches that put care, labour, and life-making at the centre of the economy.</p></div>
+      <div class="interest-card"><span class="num">02</span><h3>Feminist Economics</h3><p>Challenging the gendered blind spots of mainstream economic theory.</p></div>
+      <div class="interest-card"><span class="num">03</span><h3>Subordinate Financialization</h3><p>How global finance reshapes peripheral economies and everyday lives.</p></div>
+      <div class="interest-card"><span class="num">04</span><h3>Economic Anthropology</h3><p>Ethnographic attention to debt, networks, and household practices.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="thesis" id="thesis">
+  <div class="container">
+    <div class="thesis-card">
+      <span class="label">PhD Thesis · in progress</span>
+      <h3>Everyday practices of indebtedness: a feminist political economy study of South Africa.</h3>
+      <p>A study of how debt is lived, negotiated, and reproduced in everyday life — and what that tells us about the global financial order.</p>
+      <p class="supervisor">Supervised by <strong>Dr Sara Stevano</strong> · Department of Economics, SOAS</p>
+    </div>
+  </div>
+</section>
+
+<section class="background" id="background">
+  <div class="container">
+    <div class="section-label">↳ My background</div>
+    <h2>A path through <em>pluralist</em> economics.</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>PhD, Development Economics</h3>
+        <span class="place">SOAS, University of London · current</span>
+        <p>Researching the gendered nature of household debt in South Africa.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Consultant, Governance & Public Institutions</h3>
+        <span class="place">The World Bank · current</span>
+        <p>Working on the political economy of climate change policies.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Consultant to the Regional Vice President for South Asia</h3>
+        <span class="place">The World Bank · previously</span>
+        <p>Background research, client engagements, and internal communication.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>MSc, Political Economy of Development</h3>
+        <span class="place">SOAS, University of London</span>
+        <p>Graduate training in heterodox political economy.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>BA, Economics & Anthropology</h3>
+        <span class="place">University of Göttingen, Germany</span>
+        <p>Plus active organising with the German Network for Pluralist Economics — summer schools and roundtables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Let's <em>talk</em>.</h2>
+  <p>For collaborations, conversations, or coffee in Russell Square:</p>
+  <a href="mailto:695261@soas.ac.uk" class="btn btn-primary">695261@soas.ac.uk</a>
+</section>
+
+<footer>
+  © Lena Gempke · Department of Economics, <a href="https://www.soas.ac.uk/about/lena-gempke">SOAS University of London</a>
+</footer>
+
+</body>
+</html>
